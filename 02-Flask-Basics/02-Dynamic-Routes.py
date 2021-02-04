@@ -9,10 +9,10 @@ def index():
 def info():
     return '<h1>Puppies are cute!</h1>'
 
-@app.route('/puppy/<name>')
-def puppy(name):
-    # Page for an individual puppy.
-    return '<h1>This is a page for {}<h1>'.format(name)
+@app.route('/puppy/<id>')
+def profile(id):
+    return f'<h1>This is {id}\'s profile'
+
 
 if __name__ == '__main__':
     app.run()
