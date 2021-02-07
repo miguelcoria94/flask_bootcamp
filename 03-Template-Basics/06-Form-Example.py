@@ -5,7 +5,6 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('06-index.html')
-
 # This page will have the sign up form
 @app.route('/signup_form')
 def signup_form():
