@@ -15,3 +15,15 @@ class InfoForm(FlaskForm):
     food_choice = SelectField(u'Pick your favorite food:', choices=[('chi', 'Chicken'), ('bf', 'Beef'), ('fish', 'Fish')])
     feedback = TextAreaField()
     submit = SubmitField('Submit')
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    form = InfoForm()
+    if form.validate_on_submit():
+        session['breed'] = form.breed.data
+        session['neutered'] = form.neutered.data
+        session['mood'] = form.mood.data
+        session['food'] = form.food_choice.data
+        session['feedback'] = form.feedback.data
+
+    return 
