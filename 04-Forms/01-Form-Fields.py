@@ -26,4 +26,13 @@ def index():
         session['food'] = form.food_choice.data
         session['feedback'] = form.feedback.data
 
-    return 
+        return redirect(url_for('thankyou'))
+
+    return render_template('index.html', form=form)
+
+@app.route('thankyou')
+def thankyou():
+    return render_template('thankyou.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
